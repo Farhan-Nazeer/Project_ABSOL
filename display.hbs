@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Muli:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="ml-3 mt-2">
+    <h1>Current Schools</h1>
+    <form action="/goHome" method="POST">
+      <input class="btn btn-primary mb-3" type="Submit" value="Return Home" class="mb-3" />
+    </form>
+ 
+    <div class="schoolsDisplay">
+      <h2>
+        {{ name }}
+      </h2>
+      <img src="/photos/{{filepath}}" alt="Image does not exist" style="width: 600px; height: 600px;">
+      <h4>
+        About: {{ about }}
+      </h4>
+
+      <h4>
+        Location: {{ location }}
+      </h4>
+      <h4>
+        Admission: {{ admission }}
+      </h4>
+    </div>
+
+  </div>
+</body>
+
+</html>

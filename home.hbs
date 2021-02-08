@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Muli:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="ml-3 mt-2">
+    <h1>Current Schools</h1>
+    <form action="/insertPage" method="POST" enctype="multipart/form-data">
+      <input class="btn btn-primary mb-3" type="Submit" value="Add" class="mb-3" />
+    </form>
+    {{#each schoolArray as |item|}}
+    <div class="schools">
+
+      <h3>
+        {{ item.name }}
+      </h3>
+
+      <img src="/photos/{{item.filepath}}" alt="Image does not exist" style="width: 200px; height: 200px;">
+
+      <h6>
+        About: {{ item.about }}
+      </h6>
+
+      <h6>
+        Location: {{ item.location }}
+      </h6>
+      <h6>
+        Admission: {{ item.admission }}
+      </h6>
+
+      <p>
+      <form action="/updateSchool" method="POST">
+        <input type="text" name="editNumber" value="{{@index}}" hidden />
+        <input class="btn btn-primary" type="submit" value="Edit" class="mt-3" />
+      </form>
+      <form action="/viewSchool" method="POST" class="mt-2">
+        <input type="text" name="schoolNum" value="{{@index}}" hidden />
+        <input class="btn btn-primary" type="submit" value="View School" class="mt-3" />
+      </form>
+      </p>
+    </div>
+    {{/each}}
+  </div>
+</body>
+
+</html>
